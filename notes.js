@@ -1,5 +1,4 @@
 const fs = require('fs');
-const _ = require('lodash');
 const sanitize = require('sanitize-filename');
 
 const add = (title, body) => {

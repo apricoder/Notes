@@ -1,5 +1,15 @@
-const argv = require('yargs').argv;
 const notes = require('./notes');
+const yargs = require('yargs');
+
+const titleDescription = {describe: 'Title of note', demand: true, alias: 't'};
+const bodyDescription = {describe: 'Body of note', demand: true, alias: 'b'};
+const argv = yargs
+  .command('add', 'Adds a new note', {title: titleDescription, body: bodyDescription})
+  .command('list', 'Lists all notes')
+  .command('read', 'Gets a note by title', {title: titleDescription})
+  .command('remove', 'Removes a note with given title', {title: titleDescription})
+  .help()
+  .argv;
 
 const action = argv._[0];
 const title = argv.title;
